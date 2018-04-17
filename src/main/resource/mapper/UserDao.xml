@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.todorex.daotest.UserDao">
+    <!-- id与接口方法名一样，resultType返回类型，parameterType参数类型 -->
+    <!--标签内部主要是接口方法对应的查询语句-->
+    <select id="findByUsername" resultType="User" parameterType="String">
+
+        select * from user where username = #{username}
+
+    </select>
+</mapper>

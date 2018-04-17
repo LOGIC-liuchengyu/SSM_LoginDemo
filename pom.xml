@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.todorex</groupId>
+  <artifactId>ssm_logindemo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>ssm_logindemo Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <!--可以把版本信息都放在这里，做统一化管理-->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <spring.version>4.2.5.RELEASE</spring.version>
+  </properties>
+
+  <dependencies>
+
+    <!--使用junit作用单元测试框架-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--Java日志收集都是采用日志框架(slf4j、apache commons logging)+日志系统（log4j、log4j2、LogBack、JUL等的方式-->
+    <!--日志框架：提供日志调用的接口，实际的日志输出托付给日志系统实现，日志系统：负责输出日志-->
+    <!--使用slf4j+log4j-->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.18</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+
+    <!--数据库依赖：数据库驱动+数据库连接池-->
+    <!--使用mysql+c3p0-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.29</version>
+    </dependency>
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>0.9.1.2</version>
+    </dependency>
+
+    <!--servlet web相关依赖 -->
+    <!--标签库-->
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+    <!--标签库-->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!--servletAPI-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+
+    <!--Spring核心三个组件-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <!--通用表达式：${变量名} 变量一般在properties中定义}-->
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!--SpringMVC依赖-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!--Spring上层功能-->
+    <!--切面编程-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--配置事务-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--spel表达式，用于spring配置文件里面的一些操作-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--整合事务包控制数据库事务-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--整合junit-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!--Mybatis依赖-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.2.8</version>
+    </dependency>
+
+    <!--Mybatis与Spring的整合-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.2.2</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>ssm_logindemo</finalName>
+    <pluginManagement>
+      <plugins>
+        <!-- maven编译用的版本控制，控制jdk的版本不会回跳 -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3.2</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
